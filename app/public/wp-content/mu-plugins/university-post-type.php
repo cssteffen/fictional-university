@@ -37,7 +37,7 @@ function university_post_types() {
 
 // ======= PROFESSOR POST TYPE =======
 	register_post_type('professor', array(
-		'supports' => array('title', 'editor', 'custom_fields'),
+		'supports' => array('title', 'editor', 'custom_fields', 'thumbnail'), //enables featured image
 		'public' => true,
 		'labels' => array(
 			'name' => 'Professors',

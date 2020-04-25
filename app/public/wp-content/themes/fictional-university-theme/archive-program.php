@@ -1,19 +1,14 @@
 <?php
-get_header(); ?>
 
-	<div class="page-banner">
-    <div class="page-banner__bg-image" style="background-image: url(<?php echo get_theme_file_uri('/images/ocean.jpg') ?>);"></div>
+get_header(); 
+pageBanner(array(
+	'title' => 'All Programs',
+	'subtitle' => 'There is something for everyone. Have a look around.'
+));
+
+?>
 
 
-    <!-- ALL EVENTS HEADER & TAGLINE -->
-    <div class="page-banner__content container container--narrow">
-      <h1 class="page-banner__title">All Programs</h1>
-      <div class="page-banner__intro">
-        <p>There is something for everyone. Have a look around.</p>
-      </div>
-    </div>  
-  </div>
-    <!-- ------- -->
 
     <!-- 2014 WORDPRESS CALL the_archive_title(); replaces this following code 
           <h1 class="page-banner__title"><?php if (is_category()) {
