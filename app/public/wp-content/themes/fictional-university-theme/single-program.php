@@ -94,38 +94,33 @@ get_header();
             )
           ));
 
-          	// Only Display Upcoming events IF there are some for that program
+          	// Only Display programs IF there are some for that campus
       if ($homepageEvents->have_posts()) {
 
-          	// Adding Dynamic Headline for Upcoming Events
+          	// Adding Dynamic Headline for programs
           echo '<hr class="section-break">';
           echo '<h2 class="headline headline--medium">Upcoming ' . get_the_title() . ' Events </h2>';
           // -------
 
           while($homepageEvents->have_posts()) {
-            $homepageEvents->the_post(); ?>
+            $homepageEvents->the_post(); 
+            get_template_part('template-parts/content', get_post_type());
+             }
+          }
 
-        <div class="event-summary">
-          <a class="event-summary__date t-center" href="#">
-            <span class="event-summary__month"><?php 
-              $eventDate = new DateTime(get_field('event_date'));
-              echo $eventDate->format('M')
-            ?></span>
-            <span class="event-summary__day"><?php echo $eventDate->format('d')
-            ?></span>  
-          </a>
-          <div class="event-summary__content">
-            <h5 class="event-summary__title headline headline--tiny"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
-            <p><?php if (has_excerpt()) {
-              echo get_the_excerpt();
-            } else {
-              echo wp_trim_words(get_the_content(), 18);
-            } ?><a href="<?php the_permalink(); ?>" class="nu gray">Learn more</a></p>
-          </div>
-        </div>
+          wp_reset_postdata(); // RESET AFTER each custom query
+          $relatedCampuses = get_field('related_campus');
 
-          <?php }
+          if ($relatedCampuses) {
+          	echo '<hr class="section-break">';
+          	echo '<h2 class="headline headline--medium">' . get_the_title() . ' is Available At These Campuses:</h2>';
 
+          	echo '<ul class="min-list link-list">';
+          	foreach($relatedCampuses as $campus) {
+          		?> <li><a href="<?php echo get_the_permalink($campus); ?>"><?php echo get_the_title($campus); ?> </a></li> 
+          		<?php
+
+          	}
           }
 
           ?>
