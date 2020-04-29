@@ -17,7 +17,7 @@ get_header();
     </div>
 
   	<!-- PAGE CONTENT -->
-  	<div class="generic-content"><?php the_content(); ?></div>
+  	<div class="generic-content"><?php the_field('main_body_content'); ?></div>
 
   	
   	<!-- Custom Queries to database to find & display related program 

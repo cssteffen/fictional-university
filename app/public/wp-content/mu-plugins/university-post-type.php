@@ -20,7 +20,7 @@ function university_post_types() {
 
 // ======= PROGRAM POST TYPE =======
 	register_post_type('program', array(
-		'supports' => array('title', 'editor', 'custom_fields'),
+		'supports' => array('title', 'custom_fields'),
 		'rewrite' => array('slug' => 'programs'),
 		'has_archive' => true,
 		'public' => true,
@@ -37,6 +37,7 @@ function university_post_types() {
 
 // ======= PROFESSOR POST TYPE =======
 	register_post_type('professor', array(
+		'show_in_rest' => true,
 		'supports' => array('title', 'editor', 'custom_fields', 'thumbnail'), //enables featured image
 		'public' => true,
 		'labels' => array(
