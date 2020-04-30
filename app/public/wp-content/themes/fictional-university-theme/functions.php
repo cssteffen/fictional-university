@@ -101,8 +101,32 @@ function university_adjust_queries($query) {
 
 add_action('pre_get_posts', 'university_adjust_queries');
 
+//Redirect subscriber accounts out of admin and onto homepage
+add_action('admin_init', 'redirectSubscribersToFrontend');
+
+function redirectSubscribersToFrontend() {
+$ourCurrentUser = wp_get_current_user();
+
+	if (count($ourCurrentUser->roles) == 1 AND $ourCurrentUser->roles[0] == 'subscriber') {
+		wp_redirect(site_url('/'));
+		exit; // stop spinning gears after redirecting
+
+	}
+}
+
+//Removed Wordpress header admin bar for subscriber only users
+add_action('wp_loaded', 'noSubscriberAdminBar');
+
+function noSubscriberAdminBar() {
+$ourCurrentUser = wp_get_current_user();
+
+	if (count($ourCurrentUser->roles) == 1 AND $ourCurrentUser->roles[0] == 'subscriber') {
+		show_admin_bar(false);
+	}
+}
 
 
+// ADDS Google Maps Functionality
 function universityMapKey($api) {
 	$api['key'] = 'AIzaSyAnZV9ORCcs9HJUPtUXE3EGtC_o3KAHqGI';
 	return $api;

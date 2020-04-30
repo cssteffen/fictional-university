@@ -3,6 +3,8 @@
 // ======= EVENT POST TYPE =======
 function university_post_types() {
 	register_post_type('event', array(
+		'capability_type' => 'event', //is post by default, gives user access
+		'map_meta_cap' => true, // requires 'event level permissions to edit events'
 		'supports' => array('title', 'editor', 'excerpt'),
 		'rewrite' => array('slug' => 'events'),
 		'has_archive' => true,
@@ -52,6 +54,8 @@ function university_post_types() {
 
 // ======= CAMPUS POST TYPE =======
 	register_post_type('campus', array(
+		'capability_type' => 'campus',
+		'map_meta_cap' => true,
 		'supports' => array('title', 'editor', 'excerpt', 'custom_field', 'api'),
 		'rewrite' => array('slug' => 'campuses'),
 		'has_archive' => true,

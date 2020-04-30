@@ -217,3 +217,42 @@ Stack trace:
 [28-Apr-2020 23:00:00 UTC] PHP   2. require() /Users/carasteffen/Local Sites/fictional-university/app/public/index.php:17
 [28-Apr-2020 23:00:00 UTC] PHP   3. require_once() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-blog-header.php:19
 [28-Apr-2020 23:00:00 UTC] PHP   4. include() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-includes/template-loader.php:106
+[29-Apr-2020 19:53:16 UTC] PHP Parse error:  syntax error, unexpected '[', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /Users/carasteffen/Local Sites/fictional-university/app/public/wp-content/themes/fictional-university-theme/functions.php on line 110
+[29-Apr-2020 19:56:35 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /Users/carasteffen/Local Sites/fictional-university/app/public/wp-content/themes/fictional-university-theme/functions.php on line 110
+[29-Apr-2020 19:56:35 UTC] PHP Stack trace:
+[29-Apr-2020 19:56:35 UTC] PHP   1. {main}() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-admin/profile.php:0
+[29-Apr-2020 19:56:35 UTC] PHP   2. require_once() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-admin/profile.php:18
+[29-Apr-2020 19:56:35 UTC] PHP   3. require_once() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-admin/user-edit.php:10
+[29-Apr-2020 19:56:35 UTC] PHP   4. do_action() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-admin/admin.php:170
+[29-Apr-2020 19:56:35 UTC] PHP   5. WP_Hook->do_action() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-includes/plugin.php:478
+[29-Apr-2020 19:56:35 UTC] PHP   6. WP_Hook->apply_filters() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-includes/class-wp-hook.php:311
+[29-Apr-2020 19:56:35 UTC] PHP   7. redirectSubscribersToFrontend() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-includes/class-wp-hook.php:287
+[29-Apr-2020 19:57:44 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /Users/carasteffen/Local Sites/fictional-university/app/public/wp-content/themes/fictional-university-theme/functions.php on line 110
+[29-Apr-2020 19:57:44 UTC] PHP Stack trace:
+[29-Apr-2020 19:57:44 UTC] PHP   1. {main}() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-admin/index.php:0
+[29-Apr-2020 19:57:44 UTC] PHP   2. require_once() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-admin/index.php:10
+[29-Apr-2020 19:57:44 UTC] PHP   3. do_action() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-admin/admin.php:170
+[29-Apr-2020 19:57:44 UTC] PHP   4. WP_Hook->do_action() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-includes/plugin.php:478
+[29-Apr-2020 19:57:44 UTC] PHP   5. WP_Hook->apply_filters() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-includes/class-wp-hook.php:311
+[29-Apr-2020 19:57:44 UTC] PHP   6. redirectSubscribersToFrontend() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-includes/class-wp-hook.php:287
+[30-Apr-2020 15:33:49 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /Users/carasteffen/Local Sites/fictional-university/app/public/wp-content/themes/fictional-university-theme/functions.php on line 123
+[30-Apr-2020 15:33:49 UTC] PHP Stack trace:
+[30-Apr-2020 15:33:49 UTC] PHP   1. {main}() /Users/carasteffen/Local Sites/fictional-university/app/public/index.php:0
+[30-Apr-2020 15:33:49 UTC] PHP   2. require() /Users/carasteffen/Local Sites/fictional-university/app/public/index.php:17
+[30-Apr-2020 15:33:49 UTC] PHP   3. require_once() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-blog-header.php:13
+[30-Apr-2020 15:33:49 UTC] PHP   4. require_once() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-load.php:37
+[30-Apr-2020 15:33:49 UTC] PHP   5. require_once() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-config.php:77
+[30-Apr-2020 15:33:49 UTC] PHP   6. do_action() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-settings.php:562
+[30-Apr-2020 15:33:49 UTC] PHP   7. WP_Hook->do_action() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-includes/plugin.php:478
+[30-Apr-2020 15:33:49 UTC] PHP   8. WP_Hook->apply_filters() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-includes/class-wp-hook.php:311
+[30-Apr-2020 15:33:49 UTC] PHP   9. noSubscriberAdminBar() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-includes/class-wp-hook.php:287
+[30-Apr-2020 15:33:49 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /Users/carasteffen/Local Sites/fictional-university/app/public/wp-content/themes/fictional-university-theme/functions.php on line 123
+[30-Apr-2020 15:33:49 UTC] PHP Stack trace:
+[30-Apr-2020 15:33:49 UTC] PHP   1. {main}() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-cron.php:0
+[30-Apr-2020 15:33:49 UTC] PHP   2. require_once() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-cron.php:44
+[30-Apr-2020 15:33:49 UTC] PHP   3. require_once() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-load.php:37
+[30-Apr-2020 15:33:49 UTC] PHP   4. require_once() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-config.php:77
+[30-Apr-2020 15:33:49 UTC] PHP   5. do_action() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-settings.php:562
+[30-Apr-2020 15:33:49 UTC] PHP   6. WP_Hook->do_action() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-includes/plugin.php:478
+[30-Apr-2020 15:33:49 UTC] PHP   7. WP_Hook->apply_filters() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-includes/class-wp-hook.php:311
+[30-Apr-2020 15:33:49 UTC] PHP   8. noSubscriberAdminBar() /Users/carasteffen/Local Sites/fictional-university/app/public/wp-includes/class-wp-hook.php:287
