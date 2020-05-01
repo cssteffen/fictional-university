@@ -125,6 +125,26 @@ $ourCurrentUser = wp_get_current_user();
 	}
 }
 
+// Customize LOGIN Screen
+//(1st argument is value/object you want to change, 2nd argument is function you want to use instead )
+add_filter('login_headerurl', 'ourHeaderUrl');
+
+function ourHeaderUrl() {
+	return esc_url(site_url('/'));
+}
+
+add_action('login_enqueue_scripts', 'ourLoginCSS');
+
+function ourLoginCSS() {
+	wp_enqueue_style('university_main_styles', get_stylesheet_uri());
+	wp_enqueue_style('custom-google-font', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i');
+}
+
+add_filter('login_headertitle', 'ourLoginTitle');
+
+function ourLoginTitle() {
+	return get_bloginfo('name');
+}
 
 // ADDS Google Maps Functionality
 function universityMapKey($api) {
