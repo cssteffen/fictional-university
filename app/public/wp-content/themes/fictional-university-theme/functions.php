@@ -1,11 +1,17 @@
 <?php
 
 require get_theme_file_path('/includes/search-route.php'); // pulling in file 
+require get_theme_file_path('/includes/like-route.php');
 
 function university_custom_rest() {
 	//'post-type to customize', 'name of new field', 'array() to manage field'
 	register_rest_field('post', 'authorName', array(
 		'get_callback' => function() {return get_the_author();}
+	));
+
+	//'post-type to customize', 'name of new field', 'array() to manage field'
+	register_rest_field('note', 'userNoteCount', array(
+		'get_callback' => function() {return count_user_posts(get_current_user_id(), 'note');}
 	));
 }
 
@@ -50,9 +56,13 @@ function university_files() {
 	wp_enqueue_script('main-university-js', get_theme_file_uri('/js/scripts-bundled.js'), NULL, microtime(), true);
 	wp_enqueue_style('custom-google-font', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i');
 	wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-	wp_enqueue_style('university_main_styles', get_stylesheet_uri());//outputs js data into source of html webpage
+	wp_enqueue_style('university_main_styles', get_stylesheet_uri());
+
+	//outputs js data into source of html webpage
 	wp_localize_script('main-university-js', 'universityData', array(
-		'root_url' => get_site_url()
+		'root_url' => get_site_url(),
+		//this will allow logged in user to delete note
+		'nonce' => wp_create_nonce('wp_rest')
 	)); 
 }
 
@@ -145,6 +155,30 @@ add_filter('login_headertitle', 'ourLoginTitle');
 function ourLoginTitle() {
 	return get_bloginfo('name');
 }
+
+// ===== Force note posts to be private =======
+// Sanatizing Title & Textarea for security
+// Set note post_status to "private" for extra security
+// Setting post per user limit 
+add_filter('wp_insert_post_data','makeNotePrivate', 10, 2); //10=priority callback 2=parameters
+
+function makeNotePrivate($data, $postarr) {
+
+	if($data['post_type'] == 'note') {
+		if(count_user_posts(get_current_user_id(), 'note') > 4 AND !$postarr['ID']) {
+			die("You have reached your note limit."); // no new post will be created
+		}
+
+		$data['post_content'] = sanitize_textarea_field($data['post_content']);
+		$data['post_title'] = sanitize_text_field($data['post_title']);
+	}
+
+	if($data['post_type'] == 'note' AND $data['post_status'] != 'trash') {
+		$data['post_status'] = "private";
+	}
+	return $data;
+}
+
 
 // ADDS Google Maps Functionality
 function universityMapKey($api) {

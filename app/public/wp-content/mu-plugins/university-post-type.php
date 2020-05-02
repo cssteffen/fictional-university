@@ -73,6 +73,8 @@ function university_post_types() {
 
 // ======= NOTES POST TYPE =======
 	register_post_type('note', array(
+		'capability_type' => 'note', // gives ability for all users to create notes
+		'map_meta_cap' => true, // enforces AND requires permissions
 		'show_in_rest' => true, // ability to work in rest API
 		'supports' => array('title', 'editor', 'custom_fields'), //enables featured image
 		'public' => false, // private & specific to each user
@@ -87,9 +89,25 @@ function university_post_types() {
 		'menu_icon' => 'dashicons-welcome-write-blog'
 	));
 
+// ======= LIKE POST TYPE =======
+//using custom logic & custom handling of permissions
+	register_post_type('like', array(
+		'supports' => array('title', 'custom_fields'), //enables featured image
+		'public' => false, // private & specific to each user
+		'show_ui' => true, //shows in admin dashboard
+		'labels' => array(
+			'name' => 'Likes',
+			'add_new_item' => 'Add New Like',
+			'edit_item' => 'Edit Like',
+			'all_items' => 'All Likes',
+			'singular_name' => 'Like'
+	),
+		'menu_icon' => 'dashicons-heart'
+	));
 
 }
 
 add_action('init', 'university_post_types');
 
 ?>
+
